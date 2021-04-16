@@ -10,15 +10,30 @@ function initVue() {
   new Vue({
       el: '#jsMusic',
       data: {
-          musicArray : []
+          musicArray : [],
+          genreArray : [],
+          selectInput : ''    
       },
       mounted() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then(data => {
           this.musicArray = data.data.response;
+          for (let i = 0; i < this.musicArray.length; i++) {
+            if (!this.genreArray.includes(this.musicArray[i].genre)) { 
+            this.genreArray.push(this.musicArray[i].genre);
+            }
+          }
         })
         .catch(() => console.log('error'));
-      } 
+      },
+      
+      methods: {
+
+        filtrateGenre: function() {
+          let filtratedMusicArray = this.musicArray.filter(element => element.genre.includes(this.selectInput));
+          return filtratedMusicArray;
+        }
+      }
   });
 }
 
