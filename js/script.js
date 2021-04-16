@@ -6,17 +6,20 @@
 // BONUS 2: Ordinare i dischi per anno di uscita.
 
 
-function initVue() {
+function createMusicVue() {
   new Vue({
       el: '#jsMusic',
+
       data: {
           musicArray : [],
           genreArray : [],
           selectInput : ''    
       },
+
       mounted() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then(data => {
+
           this.musicArray = data.data.response;
           for (let i = 0; i < this.musicArray.length; i++) {
             if (!this.genreArray.includes(this.musicArray[i].genre)) { 
@@ -24,21 +27,31 @@ function initVue() {
             }
           }
         })
+
         .catch(() => console.log('error'));
       },
-      
+
       methods: {
 
         filtrateGenre: function() {
           let filtratedMusicArray = this.musicArray.filter(element => element.genre.includes(this.selectInput));
-          return filtratedMusicArray;
+          return filtratedMusicArray.sort(function(element1, element2) {
+              if (element1.year < element2.year) {
+                return -1;
+              } else if ( element1.year > element2.year) {
+                return 1;
+              } else {
+                return 0;
+              }
+          });
         }
+
       }
   });
 }
 
-function init() {
-  initVue();
+function musicVue() {
+  createmusicVue();
 }
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', createMusicVue);

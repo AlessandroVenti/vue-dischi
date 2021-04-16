@@ -4,17 +4,15 @@
   padding: 0;
 }
 
-body {
-  background-color: purple;
-}
-
 .mycontainer {
+  background-color: purple;
+  border: 3px solid bisque;
+  padding: 0 20%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 20%;
 }
 
 select{
@@ -22,24 +20,24 @@ select{
   border: 3px solid bisque;
 }
 
-.musicBox{
+.musicBox {
+  list-style-type: none;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  list-style-type: none;
 }
 
 .music-card {
+  background-color: bisque;
+  border: 3px solid red;
+  width: 350px;
+  height: 200px;
+  border-radius: 10px;
   padding: 0 20px;
   margin: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: bisque;
-  border: 3px solid lightgreen;
-  width: 350px;
-  height: 200px;
-  border-radius: 10px;
 }
 
 .musicBox li img {
@@ -50,16 +48,16 @@ select{
 }
 
 .musicBox li span h3 {
-  font-size: 25px;
   color: red;
+  font-size: 25px;
 }
 
 .musicBox li span h4 {
-  font-size: 20px;
   color: darkgrey;
+  font-size: 20px;
 }
 
 .musicBox li span h5 {
-  font-size: 20px;
   color: gray;
+  font-size: 20px;
 }
