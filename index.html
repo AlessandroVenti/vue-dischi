@@ -21,11 +21,6 @@
     <body> 
         <div id = "jsMusic"class="mycontainer">
 
-            <select name="">
-                <option value="">All</option>
-                <option v-for = "item in genreArray"value="">{{item}}</option>
-            </select>   
-
             <ul class="musicBox">
                 <li v-for ="element in musicArray" class="music-card">
                     <img :src= element.poster alt="">
